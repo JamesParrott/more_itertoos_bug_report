@@ -1,5 +1,5 @@
 # # pip3 install cassandra-driver==3.29.2 more_itertools==10.3.0
-
+from dataclasses import dataclass
 import more_itertools  # for ichunked()
 # from cassandra.cluster import Cluster
 # from cassandra.auth import PlainTextAuthProvider
@@ -31,13 +31,17 @@ if __name__ == "__main__":
 
     # # 5) Read rows and chunk into sub-iterators of 20 items
     # rows = session.execute("SELECT id, value FROM default.table1")  #
+    @dataclass
+    class Row:
+        id: int
+        value: str
 
+    rows = [Row(i+1, f'Val: {i+1}') for i in range(100)]
     # for row in rows:
     #     print(f'{row=!r}, {type(row)} {dir(row)=}')
 
-    # chunked_iters = more_itertools.ichunked(rows, 20)  #
+    chunked_iters = more_itertools.ichunked(rows, 20)  #
 
-    rows = [(f'Val: {i+1}',f'row: {i}') for i in range(100)]
 
     #  Let's read the from the table: I assume that there will be 5 chunks with size 20 each
     for i, chunk in enumerate(chunked_iters):
