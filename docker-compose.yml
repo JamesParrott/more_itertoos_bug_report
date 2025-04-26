@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  cassandra:
+    image: cassandra
+    hostname: cassandra
+    ports:  # cassandra port forwarded to localhost:9042
+      - "9042:9042"
+    # user: cassandra
+    # password: cassandra
