@@ -31,17 +31,20 @@ if __name__ == "__main__":
 
     # 5) Read rows and chunk into sub-iterators of 20 items
     rows = session.execute("SELECT id, value FROM default.table1")  #
-    chunked_iters = more_itertools.ichunked(rows, 20)  #
 
-    #  Let's read the from the table: I assume that there will be 5 chunks with size 20 each
-    for i, chunk in enumerate(chunked_iters):
-        print(f"chunk_idx: {i}")
-        # But here are generated new and new and new and new chunks wuth same and same and same contents!!!!!!
-        params = [(row.id, row.value) for row in chunk]
-        print(params)
+    
 
-        if i > 1000:
-            raise Exception("What the hell is going on, there should be only 5 chunks!!!")
+    # chunked_iters = more_itertools.ichunked(rows, 20)  #
+
+    # #  Let's read the from the table: I assume that there will be 5 chunks with size 20 each
+    # for i, chunk in enumerate(chunked_iters):
+    #     print(f"chunk_idx: {i}")
+    #     # But here are generated new and new and new and new chunks wuth same and same and same contents!!!!!!
+    #     params = [(row.id, row.value) for row in chunk]
+    #     print(params)
+
+    #     if i > 1000:
+    #         raise Exception("What the hell is going on, there should be only 5 chunks!!!")
 
     # Cleanup
     session.shutdown()
