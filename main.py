@@ -32,7 +32,8 @@ if __name__ == "__main__":
     # 5) Read rows and chunk into sub-iterators of 20 items
     rows = session.execute("SELECT id, value FROM default.table1")  #
 
-    
+    for row in rows:
+        print(f'{row=!r}, {type(row)}, {vars(row)=}')
 
     # chunked_iters = more_itertools.ichunked(rows, 20)  #
 
