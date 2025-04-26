@@ -56,5 +56,5 @@ if __name__ == "__main__":
             raise Exception("What the hell is going on, there should be only 5 chunks!!!")
 
     # Cleanup
-    # session.shutdown()
-    # cluster.shutdown()
+    session.shutdown()
+    cluster.shutdown()
