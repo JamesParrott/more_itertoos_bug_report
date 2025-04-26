@@ -42,7 +42,7 @@ if __name__ == "__main__":
     # for row in rows:
     #     print(f'{row=!r}, {type(row)} {dir(row)=}')
 
-    print(vars(rows))
+    # print(vars(rows))
 
     # chunked_iters = more_itertools.ichunked(rows, N // 5)  #
 
@@ -58,5 +58,5 @@ if __name__ == "__main__":
     #         raise Exception("What the hell is going on, there should be only 5 chunks!!!")
 
     # Cleanup
-    session.shutdown()
-    cluster.shutdown()
+    # session.shutdown()
+    # cluster.shutdown()
