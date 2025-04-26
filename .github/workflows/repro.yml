@@ -25,8 +25,8 @@ jobs:
       - name: Start cassandra container
         run: docker compose up -d
 
-      - name: Wait 10 seconds and run main script with uv
-        run: sleep 10 && uv run main.py
+      - name: Wait 20 seconds and run main script with uv
+        run: sleep 20 && uv run main.py
         
 
       
