@@ -42,18 +42,20 @@ if __name__ == "__main__":
     # for row in rows:
     #     print(f'{row=!r}, {type(row)} {dir(row)=}')
 
-    chunked_iters = more_itertools.ichunked(rows, N // 5)  #
+    print(vars(rows))
+
+    # chunked_iters = more_itertools.ichunked(rows, N // 5)  #
 
 
-    #  Let's read the from the table: I assume that there will be 5 chunks with size 20 each
-    for i, chunk in enumerate(chunked_iters):
-        print(f"chunk_idx: {i}")
-        # But here are generated new and new and new and new chunks wuth same and same and same contents!!!!!!
-        params = [(row.id, row.value) for row in chunk]
-        print(params)
+    # #  Let's read the from the table: I assume that there will be 5 chunks with size 20 each
+    # for i, chunk in enumerate(chunked_iters):
+    #     print(f"chunk_idx: {i}")
+    #     # But here are generated new and new and new and new chunks wuth same and same and same contents!!!!!!
+    #     params = [(row.id, row.value) for row in chunk]
+    #     print(params)
 
-        if i > 10*N:
-            raise Exception("What the hell is going on, there should be only 5 chunks!!!")
+    #     if i > 10*N:
+    #         raise Exception("What the hell is going on, there should be only 5 chunks!!!")
 
     # Cleanup
     session.shutdown()
